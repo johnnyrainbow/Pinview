@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
+import static android.text.InputType.TYPE_CLASS_PHONE;
 import static android.text.InputType.TYPE_CLASS_TEXT;
 import static android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD;
 
@@ -85,7 +86,7 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
     private boolean mForceKeyboard = true;
 
     public enum InputType {
-        TEXT, NUMBER
+        TEXT, NUMBER, PHONE
     }
 
     /**
@@ -252,8 +253,13 @@ public class Pinview extends LinearLayout implements TextWatcher, View.OnFocusCh
         int it;
         switch (inputType) {
             case NUMBER:
-                it = TYPE_CLASS_NUMBER | TYPE_NUMBER_VARIATION_PASSWORD;
+                it = TYPE_CLASS_PHONE | TYPE_NUMBER_VARIATION_PASSWORD;
                 break;
+
+            case PHONE:
+                it = TYPE_CLASS_PHONE;
+                break;
+
             case TEXT:
                 it = TYPE_CLASS_TEXT;
                 break;
